@@ -14,6 +14,14 @@ DELETE FROM Columna where idColumna=input_idColumna;
 END //
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS getColumna;
+DELIMITER //
+CREATE PROCEDURE getColumna(IN input_nombre varchar(100))
+BEGIN
+SELECT count(*)as existe FROM Columna where nombre=input_nombre;
+END //
+DELIMITER ;
+
 DROP PROCEDURE IF EXISTS insertAlerta;
 DELIMITER //
 CREATE PROCEDURE insertAlerta(IN input_idReporte INT, IN input_idColumna INT, IN input_valorDeBusqueda varchar(45), IN input_correo varchar(70))
