@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "puppeteer": "^2.1.1",
+    "tnc_mysql_connector": "^1.0.23"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "tnc_mysql_parser": "^1.1.16"
+  }
+}
