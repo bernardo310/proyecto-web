@@ -24,9 +24,9 @@ DELIMITER ;
 
 DROP PROCEDURE IF EXISTS insertAlerta;
 DELIMITER //
-CREATE PROCEDURE insertAlerta(IN input_idReporte INT, IN input_idColumna INT, IN input_valorDeBusqueda varchar(45), IN input_correo varchar(70))
+CREATE PROCEDURE insertAlerta(IN input_idReporte INT, IN input_idColumna INT, IN input_valorDeBusqueda varchar(45), IN input_correo varchar(70),IN input_valorPrevio varchar(140))
 BEGIN
-INSERT INTO Alerta(idReporte,idColumna,valorDeBusqueda,correo) values (input_idReporte,input_idColumna,valorDeBusqueda,correo);
+INSERT INTO Alerta(idReporte,idColumna,valorDeBusqueda,correo,valorPrevio) values (input_idReporte,input_idColumna,input_valorDeBusqueda,input_correo,input_valorPrevio);
 END //
 DELIMITER ;
 
@@ -35,6 +35,7 @@ DELIMITER //
 CREATE PROCEDURE insertColumna(IN input_nombre varchar(100))
 BEGIN
 INSERT INTO Columna(nombre) values (input_nombre);
+SELECT idColumna FROM Columna order by idColumna desc limit 1;
 END //
 DELIMITER ;
 
@@ -51,7 +52,7 @@ DELIMITER //
 CREATE PROCEDURE insertReporte(IN input_nombre varchar(100))
 BEGIN
 INSERT INTO Reporte(nombre) values (input_nombre);
-SELECT last_insert_id() from Reporte;
+SELECT idReporte FROM Reporte order by idReporte desc limit 1;
 END //
 DELIMITER ;
 

@@ -7,29 +7,13 @@ exports.getDarDeAlta = async (req, res, next) => {
     const valorBusqueda = req.body.valorBusqueda;
     const valorPrevio=req.body.valorPrevio; 
 
-    // 1 insertar reporte
-    try {
-        const result=(await db.procedures.insertReporte(reporte));
-        idReporte=(result[0].idReporte);
-    } catch(err) {
-        console.log(err);
-    }
-
-
-    //Insertar ColumnaReporte
-    try {
-        const result=(await db.procedures.insertColumnaReporte(idReporte,idColumna));
-    } catch(err) {
-        console.log(err);
-    }
-
     //Insertar Alerta
     try {
-        const result=(await db.procedures.insertAlerta(idReporte,idColumna, valor, correo));
+        const result=(await db.procedures.insertAlerta(reporte,columna, valorBusqueda, correo,valorPrevio));
+        res.status(200);
     } catch(err) {
         console.log(err);
     }
     
-    res.status(200);
 
 }
