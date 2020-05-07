@@ -3,6 +3,6 @@ const router = express.Router();
 
 const notificacionesController = require('../controllers/notificaciones');
 
-router.get('/notificaciones', notificacionesController.getDarDeAlta);
+router.post('/notificaciones', notificacionesController.getDarDeAlta);
 
 module.exports = router;

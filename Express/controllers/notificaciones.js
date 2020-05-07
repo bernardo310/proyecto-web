@@ -8,13 +8,9 @@ exports.getDarDeAlta = async (req, res, next) => {
 
     // 1 insertar reporte
     try {
-        await db.procedures.insertReporte(reporte)[0];
+        const result=(await db.procedures.insertReporte(reporte));
+        res.status(200).send({result});
     } catch(err) {
         console.log(err);
     }
-    
-
-    res.status(200).json({
-        prueba: 'yes'
-    });
 }

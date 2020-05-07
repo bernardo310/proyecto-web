@@ -24,6 +24,7 @@
     "tnc_mysql_connector": "^1.0.23"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "husky": "^4.2.5",
     "tnc_mysql_parser": "^1.1.16"
   }

@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema afivdabi_noloscontrates_dev
+-- Schema ccivsdsz_noloscontrates_dev
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema afivdabi_noloscontrates_dev
+-- Schema ccivsdsz_noloscontrates_devReporte
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `afivdabi_noloscontrates_dev` DEFAULT CHARACTER SET utf8 ;
-USE `afivdabi_noloscontrates_dev` ;
+CREATE SCHEMA IF NOT EXISTS `ccivsdsz_noloscontrates_dev` DEFAULT CHARACTER SET utf8 ;
+USE `ccivsdsz_noloscontrates_dev` ;
 
 -- -----------------------------------------------------
--- Table `afivdabi_noloscontrates_dev`.`Columna`
+-- Table `ccivsdsz_noloscontrates_dev`.`Columna`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `afivdabi_noloscontrates_dev`.`Columna` (
+CREATE TABLE IF NOT EXISTS `ccivsdsz_noloscontrates_dev`.`Columna` (
   `idColumna` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idColumna`))
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `afivdabi_noloscontrates_dev`.`Reporte`
+-- Table `ccivsdsz_noloscontrates_dev`.`Reporte`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `afivdabi_noloscontrates_dev`.`Reporte` (
+CREATE TABLE IF NOT EXISTS `ccivsdsz_noloscontrates_dev`.`Reporte` (
   `idReporte` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idReporte`))
@@ -38,9 +38,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `afivdabi_noloscontrates_dev`.`ColumnaReporte`
+-- Table `ccivsdsz_noloscontrates_dev`.`ColumnaReporte`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `afivdabi_noloscontrates_dev`.`ColumnaReporte` (
+CREATE TABLE IF NOT EXISTS `ccivsdsz_noloscontrates_dev`.`ColumnaReporte` (
   `idColumna` INT NOT NULL,
   `idReporte` INT NOT NULL,
   `orden` INT NOT NULL,
@@ -49,21 +49,21 @@ CREATE TABLE IF NOT EXISTS `afivdabi_noloscontrates_dev`.`ColumnaReporte` (
   INDEX `fk_Columna_has_Reporte_Columna_idx` (`idColumna` ASC) ,
   CONSTRAINT `fk_Columna_has_Reporte_Columna`
     FOREIGN KEY (`idColumna`)
-    REFERENCES `afivdabi_noloscontrates_dev`.`Columna` (`idColumna`)
+    REFERENCES `ccivsdsz_noloscontrates_dev`.`Columna` (`idColumna`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Columna_has_Reporte_Reporte1`
     FOREIGN KEY (`idReporte`)
-    REFERENCES `afivdabi_noloscontrates_dev`.`Reporte` (`idReporte`)
+    REFERENCES `ccivsdsz_noloscontrates_dev`.`Reporte` (`idReporte`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `afivdabi_noloscontrates_dev`.`Alerta`
+-- Table `ccivsdsz_noloscontrates_dev`.`Alerta`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `afivdabi_noloscontrates_dev`.`Alerta` (
+CREATE TABLE IF NOT EXISTS `ccivsdsz_noloscontrates_dev`.`Alerta` (
   `idAlerta` INT NOT NULL AUTO_INCREMENT,
   `idReporte` INT NOT NULL,
   `idColumna` INT NOT NULL,
@@ -74,12 +74,12 @@ CREATE TABLE IF NOT EXISTS `afivdabi_noloscontrates_dev`.`Alerta` (
   INDEX `fk_Alerta_ColumnaReporte2_idx` (`idColumna` ASC) ,
   CONSTRAINT `fk_Alerta_ColumnaReporte1`
     FOREIGN KEY (`idReporte`)
-    REFERENCES `afivdabi_noloscontrates_dev`.`ColumnaReporte` (`idReporte`)
+    REFERENCES `ccivsdsz_noloscontrates_dev`.`ColumnaReporte` (`idReporte`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Alerta_ColumnaReporte2`
     FOREIGN KEY (`idColumna`)
-    REFERENCES `afivdabi_noloscontrates_dev`.`ColumnaReporte` (`idColumna`)
+    REFERENCES `ccivsdsz_noloscontrates_dev`.`ColumnaReporte` (`idColumna`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
