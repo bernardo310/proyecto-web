@@ -6,17 +6,31 @@ exports.getDarDeAlta = async (req, res, next) => {
     const correo = req.body.correo; 
     const reporte = req.body.reporte; 
     const columna = req.body.columna; 
+<<<<<<< HEAD
     const valor = req.body.valor; 
     const registros = req.body.registros
+=======
+    const valorBusqueda = req.body.valorBusqueda;
+    const valorPrevio=req.body.valorPrevio; 
+>>>>>>> aaeaf1afc91a5aed180d499e619372c92180c2a4
 
-    // 1 insertar reporte
+    //Insertar Alerta
     try {
+<<<<<<< HEAD
         await db.procedures.insertAlerta(reporte, columna, valor, correo, registros)[0];
+=======
+        const idReporte=(await db.procedures.getReporte(reporte));
+        const idColumna=(await db.procedures.getColumna(columna));
+
+        await db.procedures.insertAlerta(idReporte[0].idReporte,idColumna[0].idColumna, valorBusqueda, correo,valorPrevio);
+        res.status(200).send();
+>>>>>>> aaeaf1afc91a5aed180d499e619372c92180c2a4
     } catch(err) {
         console.log(err);
     }
     
 
+<<<<<<< HEAD
     res.status(200).json({
         prueba: 'yes'
     });
@@ -57,3 +71,6 @@ schedule.scheduleJob('0 0*/1 * * * *', function() {
       });
 
 })
+=======
+}
+>>>>>>> aaeaf1afc91a5aed180d499e619372c92180c2a4

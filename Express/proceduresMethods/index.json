@@ -1,1 +1,1 @@
-[]
+["deleteAlerta.js","deleteColumna.js","getColumna.js","insertAlerta.js","insertColumna.js","insertColumnaReporte.js","insertReporte.js","updateColumna.js","updateReporte.js","getAllAlertas.js","getCorreosFuncionario.js","getReporte.js","updateValorPrevio.js"]

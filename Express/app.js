@@ -2,8 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require("cors");
+const db = require('tnc_mysql_connector');
 
 const allowedOrigins = ["http://localhost:3000"];
+
+
 
 app.use(
   cors({
@@ -22,16 +25,19 @@ app.use(
   })
 );
 
-
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(bodyParser.json());
 
 const buscarRoutes = require('./routes/buscar');
 const notificacionesRoutes = require('./routes/notificaciones');
 
-app.use(buscarRoutes);
-app.use(notificacionesRoutes);
-
-app.listen(4000, () => {
-    console.log('server running port 4000');
-})
+db.connect(
+  
+  ).then((connection)=>{
+    app.use(buscarRoutes);
+    app.use(notificacionesRoutes);
+    
+    app.listen(4000, () => {
+        console.log('server running port 4000');
+    })
+  })
