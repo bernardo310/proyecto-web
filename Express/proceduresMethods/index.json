@@ -1,1 +1,1 @@
-["deleteAlerta.js","deleteColumna.js","getColumna.js","insertAlerta.js","insertColumna.js","insertColumnaReporte.js","insertReporte.js","updateColumna.js","updateReporte.js","getReporte.js"]
+["deleteAlerta.js","deleteColumna.js","getColumna.js","insertAlerta.js","insertColumna.js","insertColumnaReporte.js","insertReporte.js","updateColumna.js","updateReporte.js","getReporte.js","getAllAlertas.js","updateValorPrevio.js"]

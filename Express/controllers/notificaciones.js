@@ -9,8 +9,11 @@ exports.getDarDeAlta = async (req, res, next) => {
 
     //Insertar Alerta
     try {
-        const result=(await db.procedures.insertAlerta(reporte,columna, valorBusqueda, correo,valorPrevio));
-        res.status(200);
+        const idReporte=(await db.procedures.getReporte(reporte));
+        const idColumna=(await db.procedures.getColumna(columna));
+
+        await db.procedures.insertAlerta(idReporte[0].idReporte,idColumna[0].idColumna, valorBusqueda, correo,valorPrevio);
+        res.status(200).send();
     } catch(err) {
         console.log(err);
     }

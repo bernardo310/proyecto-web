@@ -1,0 +1,7 @@
+DROP PROCEDURE IF EXISTS getAllAlertas;
+DELIMITER //
+CREATE PROCEDURE getAllAlertas()
+BEGIN
+SELECT DISTINCT valorDeBusqueda,valorPrevio FROM Alerta;
+END //
+DELIMITER ;
