@@ -5,4 +5,6 @@ const notificacionesController = require('../controllers/notificaciones');
 
 router.post('/notificaciones', notificacionesController.getDarDeAlta);
 
+router.get('/borrarAlerta', notificacionesController.borrarAlerta);
+
 module.exports = router;

@@ -30,12 +30,14 @@ app.use(bodyParser.json());
 
 const buscarRoutes = require('./routes/buscar');
 const notificacionesRoutes = require('./routes/notificaciones');
+const buscarNoticiaRoutes = require('./routes/noticia');
 
 db.connect(
   
   ).then((connection)=>{
     app.use(buscarRoutes);
     app.use(notificacionesRoutes);
+    app.use(buscarNoticiaRoutes);
     
     app.listen(4000, () => {
         console.log('server running port 4000');
