@@ -6,8 +6,6 @@ const db = require('tnc_mysql_connector');
 
 const allowedOrigins = ["http://localhost:3000"];
 
-
-
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -34,12 +32,12 @@ const buscarNoticiaRoutes = require('./routes/noticia');
 
 db.connect(
   
-  ).then((connection)=>{
+  ).then(()=>{
     app.use(buscarRoutes);
     app.use(notificacionesRoutes);
     app.use(buscarNoticiaRoutes);
     
     app.listen(4000, () => {
-        console.log('server running port 4000');
+        console.log('¡No Los Contrates! server running port 4000');
     })
   })
