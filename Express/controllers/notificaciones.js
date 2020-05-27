@@ -43,11 +43,11 @@ schedule.scheduleJob('0 0*/1 * * * *', async function () {
     console.log('\ncorriendo schedule job');
 
     var transporter = nodemailer.createTransport({
-        host: 'thenorthcode.com',
+        host: 'noloscontrates.org',
         port: 465,
         auth: {
-            user: 'orlando.torres@thenorthcode.com',
-            pass: 'Or01081999'
+            user: 'notificaciones@noloscontrates.org',
+            pass: '#noloscontrates2020!'
         }
     });
 
@@ -67,13 +67,13 @@ schedule.scheduleJob('0 0*/1 * * * *', async function () {
 
 
                     var mailOptions = {
-                        from: 'orlando.torres@thenorthcode.com',
+                        from: 'notificaciones@noloscontrates.org',
                         to: c.correo,
                         subject: 'Hay un nuevo reporte',
     
                         html: `<p>Hay un nuevo reporte para ${e.valorDeBusqueda} de Sanciones Administrativas de Inhabilitación 
-                        impuestas a un servidor público.<br>Ingresa a <a href="http://localhost:3000">NoLosContrates</a> para ver más detalles.<br><br>
-                        Si ya no quieres recibir notificaciones, haz click en: http://localhost:4000/borrarAlerta?id=${c.idAlerta}</p>`
+                        impuestas a un servidor público.<br>Ingresa a <a href="https://noloscontrates.org">NoLosContrates</a> para ver más detalles.<br><br>
+                        Si ya no quieres recibir notificaciones, haz click en: https://noloscontrates.org/borrarAlerta?id=${c.idAlerta}</p>`
                     };
 
                     await transporter.sendMail(mailOptions, function (error, info) {
