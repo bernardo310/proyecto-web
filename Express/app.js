@@ -25,6 +25,8 @@ app.use(
 
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname+"/build"))
+
 
 const buscarRoutes = require('./routes/buscar');
 const notificacionesRoutes = require('./routes/notificaciones');
@@ -38,6 +40,10 @@ db.connect(
     app.use(notificacionesRoutes);
     app.use(buscarNoticiaRoutes);
     app.use(fondosRoutes);
+
+    app.get("/*", (req, res) => {
+      res.sendFile(__dirname+"/build/index.html");
+    });
     
     app.listen(4000, () => {
         console.log('¡No Los Contrates! server running port 4000');
