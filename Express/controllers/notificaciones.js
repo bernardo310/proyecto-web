@@ -39,7 +39,7 @@ exports.borrarAlerta = async (req, res, next) => {
 }
 
 //0 0 0*/6 * * *   cada 6h
-schedule.scheduleJob('0 0*/30 * * * *', async function () {
+schedule.scheduleJob('0 0*/1 * * * *', async function () {
     console.log('\ncorriendo schedule job');
 
     var transporter = nodemailer.createTransport({
@@ -70,9 +70,10 @@ schedule.scheduleJob('0 0*/30 * * * *', async function () {
                         from: 'orlando.torres@thenorthcode.com',
                         to: c.correo,
                         subject: 'Hay un nuevo reporte',
-                        text: `Hay un nuevo reporte para ${e.valorDeBusqueda} de Sanciones Administrativas de Inhabilitación 
-                        impuestas a un servidor público. Ingresa a NoLosContrates para ver más detalles.
-                        Si ya no quieres recibir notificaciones, haz click en: http://localhost:4000/borrarAlerta?id=${c.idAlerta}`
+    
+                        html: `<p>Hay un nuevo reporte para ${e.valorDeBusqueda} de Sanciones Administrativas de Inhabilitación 
+                        impuestas a un servidor público.<br>Ingresa a <a href="http://localhost:3000">NoLosContrates</a> para ver más detalles.<br><br>
+                        Si ya no quieres recibir notificaciones, haz click en: http://localhost:4000/borrarAlerta?id=${c.idAlerta}</p>`
                     };
 
                     await transporter.sendMail(mailOptions, function (error, info) {
