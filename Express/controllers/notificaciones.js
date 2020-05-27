@@ -35,11 +35,11 @@ exports.borrarAlerta = async (req, res, next) => {
     } catch (err) {
         console.log(err);
     }
-    res.status(200).redirect('http://www.google.com');  //CAMBIAR A NOLOSCONSTRASTRE
+    res.status(200).redirect('http://localhost:3000');  //CAMBIAR A NOLOSCONSTRASTRE
 }
 
 //0 0 0*/6 * * *   cada 6h
-schedule.scheduleJob('0 0*/5* * * * *', async function () {
+schedule.scheduleJob('0 0*/30 * * * *', async function () {
     console.log('\ncorriendo schedule job');
 
     var transporter = nodemailer.createTransport({
