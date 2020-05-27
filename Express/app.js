@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const db = require('tnc_mysql_connector');
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["https://noloscontrates.org", "https://www.noloscontrates.org"];
 
 app.use(
   cors({
